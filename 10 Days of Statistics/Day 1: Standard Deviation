@@ -1,0 +1,12 @@
+
+from statistics import mean
+from math import sqrt
+
+if __name__ == '__main__':
+    n = int(input())
+    X = list(map(int, input().split()))
+
+    u = mean(X)
+    S = sqrt(sum(pow(i - u, 2) for i in X)/n)
+
+    print(round(S, 1))
