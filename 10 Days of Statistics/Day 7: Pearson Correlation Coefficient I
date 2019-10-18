@@ -1,0 +1,14 @@
+if __name__ == '__main__':
+    n = int(input())
+    X = list(map(float, input().split()))
+    Y = list(map(float, input().split()))
+
+    u_X = sum(X)/len(X)
+    u_Y = sum(Y)/len(Y)
+
+    std_dev_X = (sum([(x_i - u_X) ** 2 / n for x_i in X])) ** 0.5
+    std_dev_Y = (sum([(y_i - u_Y) ** 2 / n for y_i in Y])) ** 0.5
+   
+    r_XY = sum(([(X[i] - u_X)*(Y[i] - u_Y) for i in range(n)]))/(n*std_dev_X*std_dev_Y)
+
+    print(round(r_XY, 3))
