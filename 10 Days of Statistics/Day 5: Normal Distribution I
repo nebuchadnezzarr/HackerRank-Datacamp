@@ -1,0 +1,10 @@
+from math import erf, sqrt
+
+if __name__ == '__main__':
+    mean, stdt_dev = list(map(int, input().split()))
+    num = float(input())
+    low, up = list(map(int, input().split()))
+
+    CDF = lambda x: 1/2 * (1 + erf((x - mean)/(stdt_dev * sqrt(2))))
+
+    print(round(CDF(19.5), 3), round(CDF(up) - CDF(low), 3), sep = '\n')
